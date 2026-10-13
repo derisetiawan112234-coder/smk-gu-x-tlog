@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SMK GU X TLOG — Kenangan dan Persahabatan Teman Sekolah</title>
+<meta name="description" content="SMK GU X TLOG: galeri foto, pesan, dan kesan persahabatan teman-teman sekolah.">
+<meta property="og:title" content="SMK GU X TLOG">
+<meta property="og:description" content="Galeri foto, pesan, dan kesan persahabatan teman sekolah.">
+<meta property="og:image" content="foto/budaya-2.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--biru:#1f3fb5;--ungu:#5a3d9e;--kuning:#f0b72f;--langit:#e9f1f8;--tinta:#13203f;--putih:#fff}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Nunito',system-ui,sans-serif;color:var(--tinta);background:var(--langit);line-height:1.65}
+h1,h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.1}
+.hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:var(--putih);background:linear-gradient(transparent 35%,rgba(19,32,63,.88)),url(foto/budaya-2.jpg) center/cover}
+.hero div{padding:2rem 1.2rem 2.4rem;max-width:42rem}
+.hero h1{font-size:clamp(2.6rem,11vw,5.5rem);font-weight:800}
+.hero p{margin-top:.8rem;font-size:1.1rem}
+nav{position:sticky;top:0;z-index:5;display:flex;gap:1.2rem;padding:.8rem 1.2rem;background:var(--biru);overflow-x:auto}
+nav a{color:var(--putih);text-decoration:none;font-weight:600;white-space:nowrap}
+nav a:hover,nav a:focus-visible{color:var(--kuning)}
+section{padding:3rem 1.2rem;max-width:68rem;margin:auto}
+h2{font-size:clamp(1.8rem,6vw,2.6rem);color:var(--biru);margin-bottom:.4rem}
+.sub{margin-bottom:1.6rem;max-width:36rem}
+.galeri{columns:2 150px;column-gap:.7rem}
+.galeri figure{break-inside:avoid;margin-bottom:.7rem;cursor:pointer}
+.galeri img{width:100%;display:block;border-radius:6px}
+.galeri figcaption{font-size:.9rem;padding:.3rem 0 0}
+.pesan{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.2rem}
+.pesan blockquote{background:var(--putih);padding:1.1rem 1.2rem;border-left:5px solid var(--kuning)}
+.pesan blockquote:nth-child(even){border-left-color:var(--ungu)}
+.pesan blockquote:nth-child(3n){transform:rotate(-1deg)}
+.pesan cite{display:block;margin-top:.6rem;font-size:.9rem;font-style:normal;font-weight:600;color:var(--ungu)}
+.kesan{background:var(--ungu);color:var(--putih);max-width:none}
+.kesan>*{max-width:40rem;margin-left:auto;margin-right:auto}
+.kesan h2{color:var(--kuning)}
+footer{padding:2rem 1.2rem;text-align:center;font-size:.9rem}
+#lb{position:fixed;inset:0;background:rgba(10,15,35,.94);display:none;align-items:center;justify-content:center;z-index:10;padding:1rem}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:100%;border-radius:6px}
+a:focus-visible,figure:focus-visible{outline:3px solid var(--kuning);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div>
+    <h1>SMK GU X TLOG</h1>
+    <p>Tempat kami tumbuh, tertawa, dan jadi sahabat. Ini kenangan kami.</p>
+  </div>
+</header>
+<nav>
+  <a href="#galeri">Galeri</a>
+  <a href="#pesan">Pesan</a>
+  <a href="#kesan">Kesan</a>
+</nav>
+
+<section id="galeri">
+  <h2>Galeri Kenangan</h2>
+  <p class="sub">Ketuk foto untuk memperbesar.</p>
+  <div class="galeri" id="grid"></div>
+</section>
+
+<section id="pesan">
+  <h2>Pesan untuk Sahabat</h2>
+  <p class="sub">Dari kami, untuk kalian semua.</p>
+  <div class="pesan" id="daftar"></div>
+</section>
+
+<section class="kesan" id="kesan">
+  <h2>Kesan tentang Persahabatan</h2>
+  <p>Persahabatan di sekolah bukan soal sering ketemu, tapi soal siapa yang tetap ada saat kita lagi susah. Dari tugas yang dikerjakan bareng sampai tawa di bangku belakang, semuanya jadi cerita yang nanti kita ingat sambil senyum. Apa pun jalan kita setelah lulus, kita tetap satu angkatan, satu keluarga.</p>
+</section>
+
+<footer>© 2026 SMK GU X TLOG. Dibuat oleh teman-teman sekolah.</footer>
+
+<div id="lb" role="dialog" aria-label="Foto diperbesar"><img alt=""></div>
+
+<script>
+// Ganti atau tambah foto di sini: file = nama file di folder foto/
+const foto=[
+ {file:'budaya-1.jpg',teks:'Pentas budaya Nusantara'},
+ {file:'depan-kelas.jpg',teks:'Kumpul bareng di depan kelas'},
+ {file:'budaya-3.jpg',teks:'Gaya kompak sebelum bubar'},
+ {file:'pulang-bareng.jpg',teks:'Pulang sekolah bareng'},
+ {file:'kelas.jpg',teks:'Suasana kelas waktu istirahat'},
+ {file:'tangga.jpg',teks:'Main ke bukit sepulang sekolah'},
+ {file:'budaya-2.jpg',teks:'Foto kelas, semua lengkap'},
+ {file:'istirahat.jpg',teks:'Lagi santai di jam istirahat'}
+];
+// Ganti atau tambah pesan di sini
+const pesan=[
+ {isi:'Teman bukan yang selalu setuju denganmu, tapi yang tetap tinggal walau kita beda pendapat.',dari:'Teman sebangku'},
+ {isi:'Terima kasih sudah jadi tempat cerita, tempat ketawa, dan tempat minjem pulpen.',dari:'Anak barisan belakang'},
+ {isi:'Nanti kalau sudah sukses, jangan lupa kita pernah makan gorengan bareng di kantin.',dari:'Teman sekelas'},
+ {isi:'Kita mungkin berpisah jalan, tapi kenangan di kelas ini tidak ikut lulus.',dari:'Sahabat kelas'},
+ {isi:'Ribut, kompak, saling ledek, tapi tetap jadi keluarga. Terima kasih, kawan.',dari:'Si tukang bercanda'},
+ {isi:'Semangat terus ya, kalian semua hebat. Sampai ketemu di puncak masing-masing.',dari:'Teman seangkatan'}
+];
+const g=document.getElementById('grid'),lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+foto.forEach(f=>{
+  const fg=document.createElement('figure');fg.tabIndex=0;
+  fg.innerHTML=`<img loading="lazy" src="foto/${f.file}" alt="${f.teks}"><figcaption>${f.teks}</figcaption>`;
+  const buka=()=>{lbi.src='foto/'+f.file;lbi.alt=f.teks;lb.classList.add('on')};
+  fg.onclick=buka;fg.onkeydown=e=>{if(e.key==='Enter')buka()};
+  g.appendChild(fg);
+});
+lb.onclick=()=>lb.classList.remove('on');
+document.onkeydown=e=>{if(e.key==='Escape')lb.classList.remove('on')};
+const d=document.getElementById('daftar');
+pesan.forEach(p=>{
+  const b=document.createElement('blockquote');
+  b.textContent=p.isi;
+  const c=document.createElement('cite');c.textContent='— '+p.dari;
+  b.appendChild(c);d.appendChild(b);
+});
+</script>
+</body>
+</html>
